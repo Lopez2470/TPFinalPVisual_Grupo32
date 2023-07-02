@@ -5,7 +5,12 @@ import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,38 +19,53 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Component
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "usu_id")
 	@NotNull
 	private Long Id;
+	
+	@Column(name = "usu_nombre", length = 20, nullable = false)
 	@NotBlank(message = "Ingrese un nombre")
 	@Size(min = 5, message = "Minimo de caracteres permitidos es 5")
 	@Size(max = 20, message = "Máximo de caracteres permitidos es 20")
 	private String nombre;
 
+	@Column(name = "usu_apellido", length = 20, nullable = false)
 	@NotBlank(message = "Ingrese un apellido")
 	@Size(min = 5, message = "Minimo de caracteres permitidos es 5")
 	@Size(max = 20, message = "Máximo de caracteres permitidos es 20")
 	private String apellido;
 
+	@Column(name = "usu_email", length = 40, nullable = false)
 	@Email(message = "Correo Electronico mal ingresado")
 	@NotBlank(message = "Ingrese un correo electrónico")
 	private String email;
 
+	@Column(name = "usu_fecha", nullable = false)
 	@NotNull(message = "Ingrese una fecha")
 	@Past(message = "Ingrese una fecha correcta")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 
+	@Column(name = "usu_telefono", length = 10, nullable = false)
 	@NotNull(message = "Ingrese un nro. de telefono")
 	// @Pattern(regexp = "[11|2[2,3,4,6,8,9]{1}|3[3-8]{1}][1-9]{8}")
 	private String telefono;
 
+	@Column(name = "usu_sexo", length = 9, nullable = false)
 	@NotNull(message = "Seleccione una opción")
 	private String sexo;
 
+	@Column(name = "usu_estatura", nullable = false)
 	@NotNull(message = "Ingrese su estatura")
 	private Double estatura;
 
+	@Column(name = "usu_admin", nullable = false)
 	@NotNull(message = "Eliga una opción")
 	private Boolean admin;
 
