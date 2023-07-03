@@ -1,25 +1,50 @@
 package ar.edu.unju.fi.entity;
 
+
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 
+@Component
+@Entity
+@Table(name = "indiceMC")
 public class IndiceMasaCorporal {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "imc_id")
 	@NotNull
 	private Long id;
+	
+	@Column(name = "imc_fecha", nullable = false)
 	@NotNull(message = "Ingrese una fecha")
 	@Past(message = "Ingrese una fecha correcta")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaIMC;
+	
+	@ManyToOne
+	@JoinColumn(name = "usu_id")
 	@NotNull
 	private Usuario usuario;
+	
+	@Column(name = "imc_estado", length = 20, nullable = false)
 	@NotNull
 	private String estado;
+	
+	@Column(name = "imc_peso", nullable = false)
 	@Min(value = 30,message = "Ingrese su peso correctamente")
 	private Double peso;
 	
