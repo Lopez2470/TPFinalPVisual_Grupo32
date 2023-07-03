@@ -3,19 +3,40 @@ package ar.edu.unju.fi.entity;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+@Component
+@Entity
+@Table(name = "testimonios")
 public class Testimonio {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "tes_id")
 	@NotNull
 	private Long id;
+	@Column(name = "tes_fecha", nullable = false)
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaPublicacion;
+	
+	@ManyToOne
+	@JoinColumn(name = "usu_id")
 	@NotNull
 	private Usuario usuario;
+	
+	@Column(name = "tes_comentario", nullable = false)
 	@NotNull(message = "Ingrese su comentario")
 	@Size(min = 10,message = "Minimo de caracteres permitidos es 10")
 	@Size(max = 50, message = "Máximo de caracteres permitidos es 50")
