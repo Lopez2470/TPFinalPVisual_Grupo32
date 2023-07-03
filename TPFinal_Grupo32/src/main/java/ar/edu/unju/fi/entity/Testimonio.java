@@ -4,12 +4,21 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Testimonio {
 
+	@NotNull
 	private Long id;
+	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaPublicacion;
+	@NotNull
 	private Usuario usuario;
+	@NotNull(message = "Ingrese su comentario")
+	@Size(min = 10,message = "Minimo de caracteres permitidos es 10")
+	@Size(max = 50, message = "Máximo de caracteres permitidos es 50")
 	private String comentario;
 	
 	/*Constructor por Defecto*/
