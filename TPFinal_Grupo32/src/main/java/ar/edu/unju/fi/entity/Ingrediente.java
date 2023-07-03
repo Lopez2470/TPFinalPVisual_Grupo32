@@ -1,14 +1,29 @@
 package ar.edu.unju.fi.entity;
 
+import org.springframework.stereotype.Component;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+@Component
+@Entity
+@Table(name="ingredientes")
 public class Ingrediente {
 	//Atributos
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ingre_id")
 	@NotNull
 	private Long id;
 	
+	@Column(name="ingre_nombre",length = 30,nullable = false)
 	@NotBlank(message = "Ingresar nombre")
 	@Size(min = 3, message = "Minimo de caracteres permitidos es 3")
 	@Size(max = 40, message = "Máximo de caracteres permitidos es 40")
