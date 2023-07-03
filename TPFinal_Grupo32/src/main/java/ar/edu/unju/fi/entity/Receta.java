@@ -7,31 +7,56 @@ import javax.imageio.ImageIO;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+@Component
+@Entity
+@Table(name="recetas")
 public class Receta {
+	//Atributos
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="rece_id")
 	private Long id;
+	
+	@Size(min = 1,message = "Minimo de caracteres permitidos es 1")
+	@Size(max = 40, message = "Máximo de caracteres permitidos es 40")
+	@Column(name="rece_nombre",length = 40,nullable = false)
 	private String nombre;
+	
+	@Column(name="rece_categoria")
 	private String categoria;
+	
+	@Column(name="rece_ingrediente")
+	@OneToMany
+	@JoinColumn(name = "ingre_id")
+	@NotNull
 	private Ingrediente ingrediente;
+	
+	
+	@Column(name="rece_preparacion")
 	private String preparacion;
+	
+	@Column(name="rece_imagen")
 	private Image imagen;
-	/**
-	 * 
-	 */
+	
+	
+	//constructor
 	public Receta() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	/**
-	 * @param id
-	 * @param nombre
-	 * @param categoria
-	 * @param ingrediente
-	 * @param preparacion
-	 * @param imagen
-	 */
+	
+	//Constructor parametrizado
 	public Receta(Long id, String nombre, String categoria, Ingrediente ingrediente, String preparacion, Image imagen) {
 		super();
 		this.id = id;
@@ -41,6 +66,8 @@ public class Receta {
 		this.preparacion = preparacion;
 		this.imagen = imagen;
 	}
+	
+	//Getters and Setters
 	public Long getId() {
 		return id;
 	}
