@@ -4,13 +4,23 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+
 public class IndiceMasaCorporal {
-	
+	@NotNull
 	private Long id;
+	@NotNull(message = "Ingrese una fecha")
+	@Past(message = "Ingrese una fecha correcta")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaIMC;
+	@NotNull
 	private Usuario usuario;
+	@NotNull
 	private String estado;
+	@Min(value = 30,message = "Ingrese su peso correctamente")
 	private Double peso;
 	
 	/*Constructor por Defecto*/
