@@ -1,8 +1,17 @@
 package ar.edu.unju.fi.entity;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Ingrediente {
 	//Atributos
+	@NotNull
 	private Long id;
+	
+	@NotBlank(message = "Ingresar nombre")
+	@Size(min = 3, message = "Minimo de caracteres permitidos es 3")
+	@Size(max = 40, message = "Máximo de caracteres permitidos es 40")
 	private String Nombre;
 	
 	//constructor
