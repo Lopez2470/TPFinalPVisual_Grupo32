@@ -2,6 +2,7 @@ package ar.edu.unju.fi.entity;
 
 import java.awt.Image;
 import java.io.File;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -37,10 +38,10 @@ public class Receta {
 	private String categoria;
 	
 	@Column(name="rece_ingrediente")
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "ingre_id")
 	@NotNull
-	private Ingrediente ingrediente;
+	private List <Ingrediente> ingredientes;
 	
 	
 	@Column(name="rece_preparacion")
