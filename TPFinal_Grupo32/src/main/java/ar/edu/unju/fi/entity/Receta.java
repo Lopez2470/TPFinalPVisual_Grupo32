@@ -2,6 +2,7 @@ package ar.edu.unju.fi.entity;
 
 import java.awt.Image;
 import java.io.File;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -37,10 +38,10 @@ public class Receta {
 	private String categoria;
 	
 	@Column(name="rece_ingrediente")
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "ingre_id")
 	@NotNull
-	private Ingrediente ingrediente;
+	private List <Ingrediente> ingredientes;
 	
 	
 	@Column(name="rece_preparacion")
@@ -57,15 +58,19 @@ public class Receta {
 	}
 	
 	//Constructor parametrizado
-	public Receta(Long id, String nombre, String categoria, Ingrediente ingrediente, String preparacion, Image imagen) {
+
+	public Receta(Long id,
+			@Size(min = 1, message = "Minimo de caracteres permitidos es 1") @Size(max = 40, message = "Máximo de caracteres permitidos es 40") String nombre,
+			String categoria, @NotNull List<Ingrediente> ingredientes, String preparacion, Image imagen) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.categoria = categoria;
-		this.ingrediente = ingrediente;
+		this.ingredientes = ingredientes;
 		this.preparacion = preparacion;
 		this.imagen = imagen;
 	}
+
 	
 	//Getters and Setters
 	public Long getId() {
@@ -86,15 +91,19 @@ public class Receta {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	public Ingrediente getIngrediente() {
-		return ingrediente;
+	//
+	public List<Ingrediente> getIngredientes() {
+		return ingredientes;
 	}
-	public void setIngrediente(Ingrediente ingrediente) {
-		this.ingrediente = ingrediente;
+
+	public void setIngredientes(List<Ingrediente> ingredientes) {
+		this.ingredientes = ingredientes;
 	}
+	
 	public String getPreparacion() {
 		return preparacion;
 	}
+
 	public void setPreparacion(String preparacion) {
 		this.preparacion = preparacion;
 	}
