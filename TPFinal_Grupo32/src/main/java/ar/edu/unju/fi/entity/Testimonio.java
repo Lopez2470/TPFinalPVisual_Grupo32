@@ -26,6 +26,7 @@ public class Testimonio {
 	@Column(name = "tes_id")
 	@NotNull
 	private Long id;
+	
 	@Column(name = "tes_fecha", nullable = false)
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -39,8 +40,12 @@ public class Testimonio {
 	@Column(name = "tes_comentario", nullable = false)
 	@NotNull(message = "Ingrese su comentario")
 	@Size(min = 10,message = "Minimo de caracteres permitidos es 10")
-	@Size(max = 50, message = "Máximo de caracteres permitidos es 50")
+	@Size(max = 60, message = "Máximo de caracteres permitidos es 60")
 	private String comentario;
+	
+	@Column(name = "tes_estado", nullable = false)
+	@NotNull
+	private Boolean estado;
 	
 	/*Constructor por Defecto*/
 	public Testimonio() {
@@ -52,11 +57,13 @@ public class Testimonio {
 	 * @param fechaPublicacion: Fecha en la cual se realice el comentario
 	 * @param usuario: Nombre del usuario que realiza el comentario
 	 * @param comentario: Detalle del comentario del usuario
+	 * @param estado: Atributo para realizar la baja del testimonio
 	 */
-	public Testimonio(LocalDate fechaPublicacion, Usuario usuario, String comentario) {
+	public Testimonio(LocalDate fechaPublicacion, Usuario usuario, String comentario, Boolean estado) {
 		this.fechaPublicacion = fechaPublicacion;
 		this.usuario = usuario;
 		this.comentario = comentario;
+		this.estado = estado;
 	}
 	
 	/*Getters and Setters de los atributos de la clase*/
@@ -92,4 +99,13 @@ public class Testimonio {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+	
 }
