@@ -40,13 +40,18 @@ public class IndiceMasaCorporal {
 	@NotNull
 	private Usuario usuario;
 	
-	@Column(name = "imc_estado", length = 20, nullable = false)
+	@Column(name = "imc_resultado", length = 20, nullable = false)
 	@NotNull
-	private String estado;
+	private String resultado;
 	
 	@Column(name = "imc_peso", nullable = false)
 	@Min(value = 30,message = "Ingrese su peso correctamente")
 	private Double peso;
+	
+	@Column(name = "imc_estado", nullable = false)
+	@NotNull
+	private Boolean estado;
+	
 	
 	/*Constructor por Defecto*/
 	public IndiceMasaCorporal() {
@@ -57,17 +62,26 @@ public class IndiceMasaCorporal {
 	/**
 	 * @param fechaIMC: Fecha en la que se realiza el servicio
 	 * @param usuario: Identificacion del usuario que utiliza el servicio
-	 * @param estado: Resultado del IMC
+	 * @param resultado: Resultado del IMC
 	 * @param peso: peso de la persona al momento de realizar el IMC
+	 * @param estado: atributo para realizar la baja.
 	 */
-	public IndiceMasaCorporal(LocalDate fechaIMC, Usuario usuario, String estado, Double peso) {
+	
+	public IndiceMasaCorporal(
+			@NotNull(message = "Ingrese una fecha") @Past(message = "Ingrese una fecha correcta") LocalDate fechaIMC,
+			@NotNull Usuario usuario, @NotNull String resultado,
+			@Min(value = 30, message = "Ingrese su peso correctamente") Double peso, @NotNull Boolean estado) {
 		this.fechaIMC = fechaIMC;
 		this.usuario = usuario;
-		this.estado = estado;
+		this.resultado = resultado;
 		this.peso = peso;
+		this.estado = estado;
 	}
 	
+
+	
 	/*Getters-Setters del IndiceMasaCorporal*/
+
 	public Long getId() {
 		return id;
 	}
@@ -92,12 +106,12 @@ public class IndiceMasaCorporal {
 		this.usuario = usuario;
 	}
 
-	public String getEstado() {
-		return estado;
+	public String getResultado() {
+		return resultado;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setResultado(String resultado) {
+		this.resultado = resultado;
 	}
 
 	public Double getPeso() {
@@ -107,4 +121,13 @@ public class IndiceMasaCorporal {
 	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+	
 }
