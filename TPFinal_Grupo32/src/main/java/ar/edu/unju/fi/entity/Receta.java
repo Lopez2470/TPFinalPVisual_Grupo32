@@ -50,6 +50,10 @@ public class Receta {
 	@Column(name="rece_imagen")
 	private Image imagen;
 	
+	@Column(name = "rece_estado", nullable = false)
+	@NotNull
+	private Boolean estado;
+	
 	
 	//constructor
 	public Receta() {
@@ -61,7 +65,7 @@ public class Receta {
 
 	public Receta(Long id,
 			@Size(min = 1, message = "Minimo de caracteres permitidos es 1") @Size(max = 40, message = "Máximo de caracteres permitidos es 40") String nombre,
-			String categoria, @NotNull List<Ingrediente> ingredientes, String preparacion, Image imagen) {
+			String categoria, @NotNull List<Ingrediente> ingredientes, String preparacion, Image imagen, Boolean estado) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -69,6 +73,7 @@ public class Receta {
 		this.ingredientes = ingredientes;
 		this.preparacion = preparacion;
 		this.imagen = imagen;
+		this.estado = estado;
 	}
 
 	
@@ -113,4 +118,14 @@ public class Receta {
 	public void setImagen(Image imagen) {
 		this.imagen = imagen;
 	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+	
+	
 }
