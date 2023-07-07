@@ -27,8 +27,11 @@ public class Ingrediente {
 	@Size(min = 3, message = "Minimo de caracteres permitidos es 3")
 	@Size(max = 40, message = "Máximo de caracteres permitidos es 40")
 	@Column(name="ingre_nombre",length = 40,nullable = false)
-	private String Nombre;
+	private String nombre;
 	
+	@Column(name = "ingre_estado", nullable = false)
+	@NotNull
+	private Boolean estado;
 	//constructor
 	public Ingrediente() {
 		super();
@@ -36,10 +39,11 @@ public class Ingrediente {
 	}
 	
 	//constructor con parametros
-	public Ingrediente(Long id, String nombre) {
+	public Ingrediente(Long id, String nombre, Boolean estado) {
 		super();
 		this.id = id;
-		Nombre = nombre;
+		this.nombre = nombre;
+		this.estado = estado;
 	}
 	// Getters and Setters
 	public Long getId() {
@@ -48,12 +52,23 @@ public class Ingrediente {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
+
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+	
 	
 	
 }
