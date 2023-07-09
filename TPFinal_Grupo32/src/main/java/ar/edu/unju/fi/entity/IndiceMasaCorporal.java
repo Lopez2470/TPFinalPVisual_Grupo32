@@ -26,7 +26,6 @@ public class IndiceMasaCorporal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "imc_id")
-	@NotNull
 	private Long id;
 	
 	@Column(name = "imc_fecha", nullable = false)
@@ -40,7 +39,7 @@ public class IndiceMasaCorporal {
 	@NotNull
 	private Usuario usuario;
 	
-	@Column(name = "imc_resultado", length = 20, nullable = false)
+	@Column(name = "imc_resultado", length = 40, nullable = false)
 	@NotNull
 	private String resultado;
 	
