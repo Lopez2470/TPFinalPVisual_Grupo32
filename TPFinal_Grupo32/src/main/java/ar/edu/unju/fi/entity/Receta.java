@@ -37,22 +37,16 @@ public class Receta {
 	@Column(name="rece_categoria")
 	private String categoria;
 	
-	@Column(name="rece_ingrediente")
 	@ManyToOne
 	@JoinColumn(name = "ingre_id")
-	@NotNull
-	private List <Ingrediente> ingredientes;
+	private Ingrediente ingredientes;
 	
 	
 	@Column(name="rece_preparacion")
 	private String preparacion;
 	
 	@Column(name="rece_imagen")
-	private Image imagen;
-	
-	@Column(name = "rece_estado", nullable = false)
-	@NotNull
-	private Boolean estado;
+	private byte[] imagen;
 	
 	
 	//constructor
@@ -60,51 +54,51 @@ public class Receta {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	//Constructor parametrizado
 
-	public Receta(Long id,
+	//Constructor parametrizado
+	public Receta(
 			@Size(min = 1, message = "Minimo de caracteres permitidos es 1") @Size(max = 40, message = "Máximo de caracteres permitidos es 40") String nombre,
-			String categoria, @NotNull List<Ingrediente> ingredientes, String preparacion, Image imagen, Boolean estado) {
-		super();
-		this.id = id;
+			String categoria, Ingrediente ingredientes, String preparacion, byte[] imagen) {
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.ingredientes = ingredientes;
 		this.preparacion = preparacion;
 		this.imagen = imagen;
-		this.estado = estado;
 	}
 
-	
 	//Getters and Setters
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public String getCategoria() {
 		return categoria;
 	}
+
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	//
-	public List<Ingrediente> getIngredientes() {
+
+	public Ingrediente getIngredientes() {
 		return ingredientes;
 	}
 
-	public void setIngredientes(List<Ingrediente> ingredientes) {
+	public void setIngredientes(Ingrediente ingredientes) {
 		this.ingredientes = ingredientes;
 	}
-	
+
 	public String getPreparacion() {
 		return preparacion;
 	}
@@ -112,20 +106,20 @@ public class Receta {
 	public void setPreparacion(String preparacion) {
 		this.preparacion = preparacion;
 	}
-	public Image getImagen() {
+
+	public byte[] getImagen() {
 		return imagen;
 	}
-	public void setImagen(Image imagen) {
+
+	public void setImagen(byte[] imagen) {
 		this.imagen = imagen;
 	}
 
-	public Boolean getEstado() {
-		return estado;
-	}
 
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
+	
+	
+
+	
 	
 	
 }

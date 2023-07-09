@@ -17,7 +17,6 @@ import jakarta.validation.constraints.Size;
 @Table(name="ingredientes")
 public class Ingrediente {
 	//Atributos
-	@NotNull
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ingre_id")
@@ -27,11 +26,8 @@ public class Ingrediente {
 	@Size(min = 3, message = "Minimo de caracteres permitidos es 3")
 	@Size(max = 40, message = "Máximo de caracteres permitidos es 40")
 	@Column(name="ingre_nombre",length = 40,nullable = false)
-	private String nombre;
+	private String Nombre;
 	
-	@Column(name = "ingre_estado", nullable = false)
-	@NotNull
-	private Boolean estado;
 	//constructor
 	public Ingrediente() {
 		super();
@@ -39,11 +35,10 @@ public class Ingrediente {
 	}
 	
 	//constructor con parametros
-	public Ingrediente(Long id, String nombre, Boolean estado) {
+	public Ingrediente(Long id, String nombre) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
-		this.estado = estado;
+		Nombre = nombre;
 	}
 	// Getters and Setters
 	public Long getId() {
@@ -52,23 +47,12 @@ public class Ingrediente {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getNombre() {
-		return nombre;
+		return Nombre;
 	}
-
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		Nombre = nombre;
 	}
-
-	public Boolean getEstado() {
-		return estado;
-	}
-
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
-	
 	
 	
 }
