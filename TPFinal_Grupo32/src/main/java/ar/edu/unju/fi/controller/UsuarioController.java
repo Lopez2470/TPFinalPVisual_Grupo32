@@ -17,18 +17,16 @@ import jakarta.validation.Valid;
 @RequestMapping("/usuario")
 public class UsuarioController {
 	
-	
-	
+	/*
+	 * Se inyectan los services utilizados en el controlador
+	 */
 	@Autowired
 	private IUsuarioService usuarioService;
-	
-	@GetMapping("/inicio")
-	public String getInicio() {
-		
-		return "index";
-	}
-	
-	
+	/*
+	 * Devuelve la pagina de ingreso de un nuevo
+	 * usuario. 
+	 * Se envia el model para almacenar los datos ingresados
+	 */
 	@GetMapping("/nuevo")
 	public String getNuevoUsuario(Model model) {
 		model.addAttribute("usuario", usuarioService.getUsuario());
@@ -47,6 +45,4 @@ public class UsuarioController {
 			usuarioService.guardarUsuario(usuario);	
 			return"registro-usuario-nuevo";
 		}
-	
-	
 }
