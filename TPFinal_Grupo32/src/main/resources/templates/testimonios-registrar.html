@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head th:replace="~{layouts/head :: head}">
+<title>Salud+Bienestar</title>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<div class="container-fluid">
+		<section class="pb-4">
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
+		</section>
+		<div class="container mt-2">
+			<div class="p-3 mb-2 bg-body-secondary">
+				<form class="form-container"
+					th:action="@{/testimonio/guardarTestimonio}"
+					th:object="${testimonio}" method="post">
+					<h2>Nuevo testimonio</h2>
+
+					<h4 th:text="${usuario.nombre} + ' ' + ${usuario.apellido}"></h4>
+					<div class="form-floating">
+						<textarea style="width: 350px; height: 200px;" rows="200"
+							cols="10" class="form-control" id="comentario" minlength="10"
+							required th:field="*{comentario}">
+					</textarea>
+						<label for="comentario">Ingrese su comentario</label>
+					</div>
+					<div>
+						<input type="hidden" th:value="*{id}"> <input
+							type="hidden" name="id" th:value="${usuario.id}">
+					</div>
+					<div class="d-grid gap-2">
+						<input class="btn boton-imc m-5" type="submit" value="Guardar">
+						<a class="btn boton-imc m-5"  th:href="@{/inicio}">Cancelar</a>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+</body>
+</html>
