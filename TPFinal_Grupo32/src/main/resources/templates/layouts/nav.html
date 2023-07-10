@@ -25,7 +25,11 @@
             class="d-none d-lg-flex navbar-nav mx-auto mt-3 mt-lg-0 mb-3 mb-lg-0 position-absolute top-50 start-50 translate-middle"
           >
             <li class="nav-item me-3">
-              <a class="nav-link" th:href="@{/inicio}">Inicio</a>
+              <a class="nav-link" th:href="@{/inicio}" >Inicio</a>
+                                
+              
+              
+              
             </li>
             <li class="nav-item dropdown me-3">
               <a
@@ -40,25 +44,23 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="calcularimc.html"
+                  <a class="dropdown-item" th:href="@{/imc/imcRegistro}"
                     >Calcular IMC</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="pesoideal.html">Peso Ideal</a>
+                  <a class="dropdown-item" th:href="@{/imc/pesoIdealInicio}">Peso Ideal</a>
                 </li>
               </ul>
             </li>
             <li class="nav-item me-3">
-              <a class="nav-link" th:href="@{/receta}">Recetas</a>
+              <a class="nav-link" href="recetas.html">Recetas</a>
             </li>
             <li class="nav-item me-3">
-              <a class="nav-link" th:href="@{/testimonio/inicio}"
-                >Testimonios</a
-              >
+              <a class="nav-link" th:href="@{/testimonio/inicio}">Testimonios</a>
             </li>
             <li class="nav-item me-3">
-              <a class="nav-link" th:href="@{/contacto}">Contactanos</a>
+              <a class="nav-link" href="contactanos.html">Contactanos</a>
             </li>
             <li class="nav-item dropdown me-3">
               <a
@@ -107,23 +109,23 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMobile">
                 <li>
-                  <a class="dropdown-item" href="calcularimc.html"
+                  <a class="dropdown-item" th:href="@{/imc/imcRegistro}"
                     >Calcular IMC</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="pesoideal.html">Peso Ideal</a>
+                  <a class="dropdown-item" th:href="@{/imc/pesoIdealInicio}">Peso Ideal</a>
                 </li>
               </ul>
             </li>
             <li class="nav-item me-3">
-              <a class="nav-link" th:href="@{/receta}">Recetas</a>
+              <a class="nav-link" href="recetas.html">Recetas</a>
             </li>
             <li class="nav-item me-3">
               <a class="nav-link" th:href="@{testimonio/inicio}">Testimonios</a>
             </li>
             <li class="nav-item me-3">
-              <a class="nav-link" th:href="@{/contacto}">Contactanos</a>
+              <a class="nav-link" href="contactanos.html">Contactanos</a>
             </li>
             <li class="nav-item dropdown me-3">
               <a
@@ -161,6 +163,9 @@
           <div class="ms-auto">
             <a class="btn btn-outline-primary" th:href="@{/usuario/nuevo}"
               >Registrarme</a
+              
+                                            
+              
             >
           </div>
         </div>
