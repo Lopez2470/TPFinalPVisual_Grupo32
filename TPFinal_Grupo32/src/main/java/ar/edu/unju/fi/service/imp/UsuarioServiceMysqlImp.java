@@ -13,10 +13,10 @@ import ar.edu.unju.fi.service.IUsuarioService;
 public class UsuarioServiceMysqlImp implements IUsuarioService{
 	
 	@Autowired
-	IUsuarioRepository usuarioRepository;
+	private IUsuarioRepository usuarioRepository;
 	
 	@Autowired
-	Usuario usuario;
+	private Usuario usuario;
 
 	@Override
 	public List<Usuario> getUsuarios() {
@@ -25,18 +25,24 @@ public class UsuarioServiceMysqlImp implements IUsuarioService{
 
 	@Override
 	public Usuario getUsuario() {
-		return getUsuario();
+		return usuario;
 	}
 
 	@Override
 	public void guardarUsuario(Usuario usuario) {
 		usuarioRepository.save(usuario);
 		
+		
 	}
 
 	@Override
 	public Usuario getBy(Long id) {
 		return usuarioRepository.findById(id).get();
+	}
+
+	@Override
+	public Boolean encontrarUsuario(Long id) {
+		return usuarioRepository.existsById(id);
 	}
 
 }

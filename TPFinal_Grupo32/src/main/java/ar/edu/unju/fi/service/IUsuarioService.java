@@ -12,9 +12,11 @@ public interface IUsuarioService {
 	List <Usuario> getUsuarios();
 	
 	Usuario getUsuario();
-	/*Guardar el objeto usuario*/
+	
 	public void guardarUsuario(Usuario usuario);
-	/*Buscar usuario por su id*/
+	
 	public Usuario getBy(Long id);
+	
+	public Boolean encontrarUsuario(Long id);
 
 }
