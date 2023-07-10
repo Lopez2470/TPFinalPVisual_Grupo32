@@ -9,11 +9,16 @@
 		<section class="pb-4">
 			<nav th:replace="~{layouts/nav :: nav}"></nav>
 		</section>
-		<div class="card text-center">
-
+		
+		
+		<section class="pb-5 pt-5 mb-5">
+		<div class="container">
+		<div class="row">
+		<div class="col-12 col-md-9 col-xl-5 mx-auto">
+		<div class="card text-center bg-light mt-3">
 
 			<div class="card-body text-center">
-				<h5 class="card-title">Peso Ideal</h5>
+				<h4 class="card-title">Peso Ideal</h4>
 				<form th:action="@{/imc/pesoIdealCalcular/}" th:object="${usuario}"
 					method="post">
 
@@ -24,8 +29,8 @@
 					<div th:text="${edad}"></div>
 
 
-					<div class="card text-center">
-						<p>Su Peso Ideal es: <span th:text="${pesoIdeal}"></span>
+					<div class="card text-center p-3">
+						<p>Su Peso Ideal es: <span class="fw-bold" th:text="${pesoIdeal}"></span>
 						</p>
 						<div class="card-buttons">
 							<a th:href="@{/inicio}" class="btn btn-primary">Inicio</a>
@@ -35,7 +40,10 @@
 				</form>
 			</div>
 		</div>
-
+		</div>
+		</div>
+		</div>
+		</section>
 
 
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
