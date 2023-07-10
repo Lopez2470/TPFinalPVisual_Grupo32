@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head th:replace="~{layouts/head :: head}">
+<title>Salud+Bienestar</title>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<div class="container-fluid">
+		<section class="pb-4">
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
+		</section>
+		<div class="card text-center">
+			<div class="card " id="card-gestion">
+				<h4 class="card-title text-center">Registros de Indices de Masa
+					Corporal</h4>
+				<div>Datos del Usuario</div>
+				<label>Nombre:</label>
+				<div th:text="${usuario.nombre} + ${' '} + ${usuario.apellido}"></div>
+
+				<div class="card-body">
+					<div class="table-responsive">
+						<table
+							class="table-sm table table-striped table-bordered table-hover">
+							<thead class="bg-secondary text-white">
+								<tr>
+									<th scope="col">Fecha Realizado</th>
+									<th scope="col">Peso Ingresado</th>
+									<th scope="col">Resultado del IMC</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="indice: ${imcLista}">
+									<td
+										th:text="${#temporals.format(indice.fechaIMC,'dd/MM/yyyy')}"></td>
+									<td th:text="${indice.peso}"></td>
+									<td th:text="${indice.resultado}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+</body>
+</html>

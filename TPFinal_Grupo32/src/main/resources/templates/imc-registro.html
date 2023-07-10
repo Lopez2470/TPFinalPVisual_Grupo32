@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head th:replace="~{layouts/head :: head}">
+<title>Salud+Bienestar</title>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<div class="container-fluid">
+		<section class="pb-4">
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
+		</section>
+		<div class="card text-center">
+			<div class="card-body text-center">
+				<h5 class="card-title">Indice Masa Corporal</h5>
+				<form th:action="@{/imc/imcRegistrar/}" th:object="${usuario}"
+					method="post">
+					<div class="mb-3">
+						<label for="id" class="form-label">Ingresar su Nro. de
+							Usuario</label> <input type="number" th:field="*{id}"
+							class="form-control" id="id" required>
+						<div class="text-danger"
+							th:text="${existe}?'':'No hay registro del Usuario'"></div>
+					</div>
+					<div class=row>
+						<div class="mb-3">
+							<label for="peso" class="form-label">Ingresar su Peso</label> <input
+								type="number" class="form-control" id="peso" name="peso"
+								min="49" max="190" required>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Calcular</button>
+				</form>
+			</div>
+		</div>
+
+
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+</body>
+</html>
