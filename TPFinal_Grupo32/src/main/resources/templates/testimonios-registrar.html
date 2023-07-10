@@ -11,7 +11,8 @@
 		</section>
 		<div class="container mt-2">
 			<div class="p-3 mb-2 bg-body-secondary">
-				<form class="form-container"
+			<div class="d-flex justify-content-center">
+				<form class="form-container mb-5 text-center"
 					th:action="@{/testimonio/guardarTestimonio}"
 					th:object="${testimonio}" method="post">
 					<h2>Nuevo testimonio</h2>
@@ -29,11 +30,12 @@
 							type="hidden" name="id" th:value="${usuario.id}">
 					</div>
 					<div class="d-grid gap-2">
-						<input class="btn boton-imc m-5" type="submit" value="Guardar">
-						<a class="btn boton-imc m-5"  th:href="@{/inicio}">Cancelar</a>
+						<input class="btn btn-primary mt-3" type="submit" value="Guardar">
+						<a class="btn btn-primary mt-2"  th:href="@{/inicio}">Cancelar</a>
 						
 					</div>
 				</form>
+				</div>
 			</div>
 		</div>
 

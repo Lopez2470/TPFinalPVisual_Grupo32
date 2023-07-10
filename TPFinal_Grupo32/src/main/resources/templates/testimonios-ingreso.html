@@ -12,17 +12,17 @@
 
 		<div
 			class="container d-flex align-items-center justify-content-center mt-2">
-			<div class="p-3 mb-2 bg-body-secondary">
-				<h4 class="text-center fw-semibold container__subtitulo">Ingreso al Sitema</h4>
-				<form class="row g-3" th:action="@{/testimonio/verificarIngreso}"
+			<div class="p-3 mb-5 bg-body-secondary">
+				<h4 class="text-center fw-semibold container__subtitulo">Ingreso al Sistema</h4>
+				<form class="row g-3 text-center" th:action="@{/testimonio/verificarIngreso}"
 					method="post">
-					<div class="col-12 mb-3">
-						<label for="id" class="form-label ">Ingresar codigo de usuario</label> <input type="number" class="form-control" id="id"
+					<div class="col-12 mb-2">
+						<label for="id" class="form-label ">Ingresar código de usuario</label> <input type="number" class="form-control" id="id"
 							name="id" required>
 						<div th:if="${mensaje}"
 							class="p-1 mt-1 mb-2 bg-danger text-white rounded-1">Usuario no registrado</div>
 					</div>
-					<input type="submit" class="btn boton-imc" value="Aceptar">
+					<input type="submit" class="btn btn-primary" value="Enviar">
 				</form>
 			</div>
 		</div>

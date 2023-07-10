@@ -11,15 +11,15 @@
 		</section>
 
 		<div class="container">
-			<h3 class="text-center">Testimonios</h3>
+			<h3 class="text-center mb-5">Testimonios de usuarios</h3>
 			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
 				<div class="col d-flex justify-content-center"
 					th:each="testimonio: ${testimonios}">
-					<div class="card p-3 text-center px-4" style="width: 20rem;">
+					<div class="card p-3 text-center px-4 mb-5 bg-light" style="width: 20rem;">
 						<div class="user-content">
-							<p class="card-text" th:text="${testimonio.comentario}">
-							<p class="testimonial-author"
+							<p class="lead text-muted mb-4" th:text="${testimonio.comentario}">
+						    <p class="fw-bold"
 								th:text="${testimonio.usuario.nombre}+' '+${testimonio.usuario.apellido}"></p>
 							<p class="testimonial-text"
 								th:text="${testimonio.fechaPublicacion}"></p>
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 			<div class="gap-2 text-center">
-				<a class=" btn boton-imc m-5" th:href="@{/testimonio/inicio}">Nuevo testimonio</a>
+				<a class=" btn btn-primary m-5" th:href="@{/testimonio/inicio}">Nuevo testimonio</a>
 			</div>
 		</div>
 
