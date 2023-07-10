@@ -44,11 +44,11 @@
 										th:errors="*{apellido}"></div>
 								</div>
 
-								<div class="row mb-2">
+<!-- 								<div class="row mb-2"> -->
 									<label for="e-mail" class="form-label">E-mail</label> <input
 										class="form-control mb-2" type="email" id="e-mail"
 										th:field="*{email}" />
-								</div>
+<!-- 								</div> -->
 								<div class="text-danger" th:if="${#fields.hasErrors('email')}"
 									th:errors="*{email}"></div>
 
@@ -63,7 +63,7 @@
 										th:errors="*{fechaNacimiento}"></div>
 
 									<div class="col-12 col-lg-6">
-										<label for="telefono" class="form-label">Tel�fono</label> <input
+										<label for="telefono" class="form-label">Teléfono</label> <input
 											class="form-control" type="text" id="telefono"
 											th:field="*{telefono}" />
 									</div>
@@ -97,11 +97,11 @@
 										th:errors="*{estatura}"></div>
 								</div>
 
-								<div class="card text-center">
-									<h3>Bienvenido!!!</h3>
-									<h3>Gracias por registrarse</h3>
-									<p>	Su nro de identificacion es: 
-										<span th:text="*{id}"></span></p>
+								<div class="card text-center bg-opacity-10 bg-warning p-3 mt-4">
+									<h4>Bienvenido/a!!!</h4>
+									<h5>Gracias por registrarse</h5>
+									<p>	Su nro. de identificación es: 
+										<span th:text="*{id}" class="fw-bold text-danger"></span></p>
 									<div class="card-buttons">
 										<a href="/inicio" class="btn btn-primary">Inicio</a>	
 									</div>
