@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head th:replace="~{layouts/head :: head}">
+<title>Salud+Bienestar</title>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<div class="container-fluid">
+		<section class="pb-4">
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
+		</section>
+		<div class="card text-center">
+
+
+			<div class="card-body text-center">
+				<h5 class="card-title">Peso Ideal</h5>
+				<form th:action="@{/imc/pesoIdealCalcular/}" th:object="${usuario}"
+					method="post">
+
+					<div>Datos del Usuario</div>
+					<label>Nombre: </label>
+					<div th:text="${usuario.nombre} + ${' '} + ${usuario.apellido}"></div>
+					<label>Edad: </label>
+					<div th:text="${edad}"></div>
+
+
+					<div class="card text-center">
+						<p>Su Peso Ideal es: <span th:text="${pesoIdeal}"></span>
+						</p>
+						<div class="card-buttons">
+							<a th:href="@{/inicio}" class="btn btn-primary">Inicio</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+
+
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+</body>
+</html>
