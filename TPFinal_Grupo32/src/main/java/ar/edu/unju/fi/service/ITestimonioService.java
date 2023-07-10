@@ -10,13 +10,15 @@ public interface ITestimonioService {
 	
 	Testimonio getTestimonio();
 	
-	public void guardarTestimonio(Testimonio testimonio);
+	public void guardarTestimonio(Testimonio testimonio, Long id);
 	
 	public void editarTestimonio(Testimonio testimonio);
 	
 	public void eliminarTestimonio(Testimonio testimonio);
 	
 	public Testimonio getBy(Long id);
+
+	//void guardarTestimonio(Testimonio testimonio);
 	
 
 }
