@@ -1,139 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-  <head th:replace="~{layouts/head :: head}">
-    <title>Salud+Bienestar</title>
-  </head>
-  <body>
-    <header th:replace="~{layouts/header :: header}"></header>
-    <div class="container-fluid">
-      <section class="pb-4">
-        <nav th:replace="~{layouts/nav :: nav}"></nav>
-      </section>
+<head th:replace="~{layouts/head :: head}">
+<title>Salud+Bienestar</title>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<div class="container-fluid">
+		<section class="pb-4">
+			<nav th:replace="~{layouts/nav :: nav}"></nav>
+		</section>
 
-      <section class="py-5">
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-12 col-lg-8 mx-auto text-center">
-              <span class="text-muted">Testimonios</span>
-              <h2 class="display-5 fw-bold mt-2 mb-3">
-                Testimonios de los usuarios de Salud+Bienestar
-              </h2>
-              <p class="lead text-muted">
-                Estos son algunos de los testimonios de usuarios satisfechos que
-                comparten sus opiniones y experiencias acerca de nuestro sitio
-                web.
-              </p>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-              <div class="p-4 bg-light rounded">
-                <p class="lead text-muted mb-5">
-                  Gracias a este sitio web, he logrado perder peso de manera
-                  saludable y mantenerlo a largo plazo. Las recetas y consejos
-                  son fáciles de seguir y realmente efectivos. Felicito a los
-                  creadores de Salud y Bienestar.
-                </p>
-                <img
-                  class="img-fluid mb-3"
-                  src="/images/blue-400-avatar.png"
-                  alt=""
-                  style="width: 48px; height: 48px"
-                />
-                <h4 class="fw-bold">Myriam</h4>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-              <div class="p-4 bg-light rounded">
-                <p class="lead text-muted mb-5">
-                  Estoy encantada con los resultados que he obtenido siguiendo
-                  las recomendaciones de esta página. Me siento mucho mejor
-                  conmigo misma y las chicas del barrio ya no se burlan de mí.
-                </p>
-                <img
-                  class="img-fluid mb-3"
-                  src="/images/blue-400-avatar.png"
-                  alt=""
-                  style="width: 48px; height: 48px"
-                />
-                <h4 class="fw-bold">Susana G.</h4>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-              <div class="p-4 bg-light rounded">
-                <p class="lead text-muted mb-5">
-                  Recomiendo este sitio web a todos aquellos que deseen mejorar
-                  su salud y bienestar. Las herramientas y recursos disponibles
-                  son realmente útiles y motivadores. Me gustaría que sigan
-                  ampliando contenidos.
-                </p>
-                <img
-                  class="img-fluid mb-3"
-                  src="/images/blue-400-avatar.png"
-                  alt=""
-                  style="width: 48px; height: 48px"
-                />
-                <h4 class="fw-bold">Pedro Liberal</h4>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-              <div class="p-4 bg-light rounded">
-                <p class="lead text-muted mb-5">
-                  Al principio tenía mis dudas, mi familia insistía en que debía
-                  mejorar mi peso y estado físico, cuando comencé no estaba muy
-                  animado pero luego empecé a ver cambios impactantes que me
-                  motivaron a seguir. Ahora soy fan de S+B.
-                </p>
-                <img
-                  class="img-fluid mb-3"
-                  src="/images/blue-400-avatar.png"
-                  alt=""
-                  style="width: 48px; height: 48px"
-                />
-                <h4 class="fw-bold">Renato D.</h4>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
-              <div class="p-4 bg-light rounded">
-                <p class="lead text-muted mb-5">
-                  Una amiga me recomendó mucho este sitio y pensé que exageraba,
-                  pero la verdad que me sorprendió esta página. Los avances que
-                  logré con mi rutina de dietas superaron mis expectativas,
-                  tanto así que hoy soy otra persona.
-                </p>
-                <img
-                  class="img-fluid mb-3"
-                  src="/images/blue-400-avatar.png"
-                  alt=""
-                  style="width: 48px; height: 48px"
-                />
-                <h4 class="fw-bold">Bruno Díaz</h4>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="p-4 bg-light rounded">
-                <p class="lead text-muted mb-5">
-                  Yo quiero dar las gracias a la gente genial que hizo posible
-                  la creación de Internet, gracias a eso pude descubrir este
-                  sitio y hoy puedo decir que mi vida no sería la misma sin la
-                  página de Salud y Bienestar. Las recetas son espectaculares.
-                </p>
-                <img
-                  class="img-fluid mb-3"
-                  src="/images/blue-400-avatar.png"
-                  alt=""
-                  style="width: 48px; height: 48px"
-                />
-                <h4 class="fw-bold">Angelina</h4>
-              </div>
-            </div>
-          </div>
-          <div class="text-center mt-5 mb-5">
-            <a class="btn btn-primary" href="#">Ver más testimonios</a>
-          </div>
-        </div>
-      </section>
-      <footer th:replace="~{layouts/footer :: footer}"></footer>
-    </div>
-  </body>
+		<div class="container">
+			<h3 class="text-center">Testimonios</h3>
+			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+
+				<div class="col d-flex justify-content-center"
+					th:each="testimonio: ${testimonios}">
+					<div class="card p-3 text-center px-4" style="width: 20rem;">
+						<div class="user-content">
+							<p class="card-text" th:text="${testimonio.comentario}">
+							<p class="testimonial-author"
+								th:text="${testimonio.usuario.nombre}+' '+${testimonio.usuario.apellido}"></p>
+							<p class="testimonial-text"
+								th:text="${testimonio.fechaPublicacion}"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gap-2 text-center">
+				<a class=" btn boton-imc m-5" th:href="@{/testimonio/inicio}">Nuevo testimonio</a>
+			</div>
+		</div>
+
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</div>
+</body>
 </html>
