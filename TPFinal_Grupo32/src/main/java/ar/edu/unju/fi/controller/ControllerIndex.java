@@ -12,11 +12,4 @@ public class ControllerIndex {
 		public String getIndex() {
 			return "index";
 		}
-		
-		@GetMapping("registro")
-		public String getGegister() {
-			return "registro";
-		}
-		
-
 }
