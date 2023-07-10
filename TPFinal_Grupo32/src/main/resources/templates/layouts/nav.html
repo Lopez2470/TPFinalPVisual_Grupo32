@@ -25,7 +25,11 @@
             class="d-none d-lg-flex navbar-nav mx-auto mt-3 mt-lg-0 mb-3 mb-lg-0 position-absolute top-50 start-50 translate-middle"
           >
             <li class="nav-item me-3">
-              <a class="nav-link" href="index.html">Inicio</a>
+              <a class="nav-link" th:href="@{/inicio}" >Inicio</a>
+                                
+              
+              
+              
             </li>
             <li class="nav-item dropdown me-3">
               <a
@@ -90,7 +94,7 @@
           </ul>
           <ul class="navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 d-lg-none">
             <li class="nav-item me-4">
-              <a class="nav-link" href="index.html">Inicio</a>
+              <a class="nav-link" th:href="@{/inicio}">Inicio</a>
             </li>
             <li class="nav-item dropdown me-3">
               <a
@@ -157,8 +161,11 @@
             </li>
           </ul>
           <div class="ms-auto">
-            <a class="btn btn-outline-primary" href="registrousuarios.html"
+            <a class="btn btn-outline-primary" th:href="@{/usuario/nuevo}"
               >Registrarme</a
+              
+                                            
+              
             >
           </div>
         </div>
