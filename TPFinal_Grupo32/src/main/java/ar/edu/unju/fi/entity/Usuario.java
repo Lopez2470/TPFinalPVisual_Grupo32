@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -26,7 +27,7 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "usu_id")
-	@NotNull
+	//@NotNull
 	private Long Id;
 	
 	@Column(name = "usu_nombre", length = 20, nullable = false)
@@ -54,19 +55,24 @@ public class Usuario {
 
 	@Column(name = "usu_telefono", length = 10, nullable = false)
 	@NotNull(message = "Ingrese un nro. de telefono")
-	// @Pattern(regexp = "[11|2[2,3,4,6,8,9]{1}|3[3-8]{1}][1-9]{8}")
+	@NotBlank(message = "Ingrese un nro telefonico")
+	//@Pattern(regexp = "[11|2[2,3,4,6,8,9]{1}|3[3-8]{1}][1-9]{8}")
+	@Pattern(regexp = "[0-9]{10}")
 	private String telefono;
 
 	@Column(name = "usu_sexo", length = 9, nullable = false)
 	@NotNull(message = "Seleccione una opción")
+	@NotBlank(message = "Debe elegir una opcion")
 	private String sexo;
 
 	@Column(name = "usu_estatura", nullable = false)
 	@NotNull(message = "Ingrese su estatura")
+	@Min(value = 1, message = "Ingrese un valor")
 	private Double estatura;
 
 	@Column(name = "usu_admin", nullable = false)
 	@NotNull(message = "Eliga una opción")
+	
 	private Boolean admin;
 
 	/* constructor por defecto */
