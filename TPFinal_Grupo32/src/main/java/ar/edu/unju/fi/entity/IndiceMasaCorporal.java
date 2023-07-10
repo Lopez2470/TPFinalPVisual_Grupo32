@@ -29,8 +29,6 @@ public class IndiceMasaCorporal {
 	private Long id;
 	
 	@Column(name = "imc_fecha", nullable = false)
-	@NotNull(message = "Ingrese una fecha")
-	@Past(message = "Ingrese una fecha correcta")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaIMC;
 	
@@ -40,15 +38,13 @@ public class IndiceMasaCorporal {
 	private Usuario usuario;
 	
 	@Column(name = "imc_resultado", length = 40, nullable = false)
-	@NotNull
 	private String resultado;
 	
 	@Column(name = "imc_peso", nullable = false)
-	@Min(value = 30,message = "Ingrese su peso correctamente")
+	@Min(value = 49,message = "Ingrese su peso correctamente")
 	private Double peso;
 	
 	@Column(name = "imc_estado", nullable = false)
-	@NotNull
 	private Boolean estado;
 	
 	
@@ -76,9 +72,7 @@ public class IndiceMasaCorporal {
 		this.peso = peso;
 		this.estado = estado;
 	}
-	
 
-	
 	/*Getters-Setters del IndiceMasaCorporal*/
 
 	public Long getId() {
